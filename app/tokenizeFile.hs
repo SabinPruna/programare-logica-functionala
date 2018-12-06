@@ -1,7 +1,10 @@
+import Data.List
+
+
 parse::String -> IO()
 parse [] = putStrLn "---Done"
-parse (head : restOfList) = do {
-                            putStr [head]; 
+parse (headOfList : restOfList) = do {
+                            putStr [headOfList]; 
                             parse restOfList
                         }
 parse ('\n' : restOfList) = do { 
@@ -17,11 +20,11 @@ parse (' ' : restOfList) = do {
 
 main::IO()
 main=do {
-    putStrLn "Name of file?";
-    fileName <- getLine;
-    fileContent <- readFile fileName;
-    parse fileContent;
-    putStrLn "Continue? Y/N";
-    answer <- getLine;
-    Control.Monad.when (answer == "Y") main
-}       
+      putStrLn "Name of file?";
+      fileName <- getLine;
+      fileContent <- readFile fileName;
+      parse fileContent;
+      putStrLn "Continue? Y/N";
+      answer <- getLine;
+      if answer == "Y" then main else putStrLn "Program finished.";   --Control.Monad.when (answer == "Y") main;
+    }       

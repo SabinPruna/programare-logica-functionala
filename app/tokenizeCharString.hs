@@ -17,7 +17,7 @@ deltok(cap:rest) = deltok rest
 
 normalizare::String->String
 normalizare [] = []
-normalizare ls = eliminareinautru(elsrf ls)
+normalizare ls = eliminareinauntru(elsrf ls)
 
 eliminareinauntru (c: rl) = c : eliminareinauntru rl
 
