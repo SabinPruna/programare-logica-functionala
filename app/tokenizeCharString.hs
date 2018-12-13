@@ -1,5 +1,5 @@
 --tok::[Char] -> [[Char]] 
-tok::String->[String]
+tok::String-> [String]
 
 -- if ends with s its list
 tok[] = []
@@ -8,6 +8,25 @@ tok ls = rettok ls : tok (deltok ls)
 rettok::String -> String
 rettok []= []
 rettok(' ':_) = []
+rettok(',':_) = []
+rettok('.':_) = []
+rettok('!':_) = []
+rettok('-':_) = []
+rettok('_':_) = []
+rettok('+':_) = []
+rettok('=':_) = []
+rettok('?':_) = []
+rettok('/':_) = []
+rettok('\\':_) = []
+rettok(')':_) = []
+rettok('(':_) = []
+rettok('[':_) = []
+rettok(']':_) = []
+rettok('{':_) = []
+rettok('}':_) = []
+rettok(';':_) = []
+rettok('\'':_) = []
+rettok('"':_) = []
 rettok(cap:restlista)=cap : rettok restlista
 
 deltok::String -> String
@@ -26,5 +45,9 @@ elsrf [] = []
 elsrf (' ':rl) = elsrf rl
 elrsf rl = rl
 
+
 main :: IO()
-main = print(tok "Ion urca dealul")
+main = do  {
+              print $  filter (not . null) $ tok "Ion, urca  !! ? <   dealul (greu";
+
+           }
